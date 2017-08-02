@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Receta } from '../receta';
+import { ListaCompraService } from '../../lista-compra/lista-compra.service';
 
 @Component({
   selector: 'app-receta-info',
@@ -10,9 +11,12 @@ export class RecetaInfoComponent implements OnInit {
   
   @Input() recetaSeleccionada: Receta;
   
-  constructor() { }
+  constructor(private listaCompraService: ListaCompraService) { }
 
   ngOnInit() {
   }
 
+  anadirAListaCompra() {
+    this.listaCompraService.anadirIngredientes(this.recetaSeleccionada.ingredientes);
+  }
 }

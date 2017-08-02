@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Ingrediente } from '../Shared/ingrediente';
+import { ListaCompraService } from './lista-compra.service';
 
 @Component({
   selector: 'app-lista-compra',
@@ -6,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lista-compra.component.css']
 })
 export class ListaCompraComponent implements OnInit {
+   items: Array<Ingrediente> = [];
 
-  constructor() { }
+  constructor(private listaCompraService: ListaCompraService) { }
 
   ngOnInit() {
+    this.items = this.listaCompraService.getItems();
   }
 
 }

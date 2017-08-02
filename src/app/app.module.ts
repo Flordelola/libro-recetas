@@ -12,6 +12,8 @@ import { ListaRecetasComponent } from './recetas/lista-recetas/lista-recetas.com
 import { RecetaInfoComponent } from './recetas/receta-info/receta-info.component';
 import { RecetaItemComponent } from './recetas/lista-recetas/receta-item.component';
 import { AnadirItemComponent } from './lista-compra/anadir-item.component';
+import { ListaCompraService } from './lista-compra/lista-compra.service';
+import { routing } from './app.routing';
 
 @NgModule({
   declarations: [
@@ -27,9 +29,10 @@ import { AnadirItemComponent } from './lista-compra/anadir-item.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    routing
   ],
-  providers: [],
+  providers: [ListaCompraService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
